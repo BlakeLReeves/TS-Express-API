@@ -1,7 +1,11 @@
 import * as React from 'react';
-import { Card, CardTitle, CardText, CardFooter, Col} from 'reactstrap';
+import { Card, CardTitle, CardText, CardFooter, Col } from 'reactstrap';
 
-const Timeline = (props) => {
+interface WelcomeProps {
+    chirp: { id: string, user: string, text: string }[];
+}
+
+const Timeline: React.SFC<WelcomeProps> = (props) => {
     return (
         <Col sm="6">
             <Card body className="col-md-12 m-2">
