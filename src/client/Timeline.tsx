@@ -8,13 +8,16 @@ interface WelcomeProps {
 
 const Timeline: React.SFC<WelcomeProps> = (props) => {
 
-    const deleteChirp = (id: string) => {
-        $.ajax({
-            type: "DELETE",
-            url: `/api/chirps/:id`
-        })
-    };
-    
+    const deleteChirp = async (id: string) => {
+        try {
+            await fetch(`/api/chirps/${props.chirp.id}`, {
+                method: 'DELETE',
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
 
     return (
         <Col sm="12">
