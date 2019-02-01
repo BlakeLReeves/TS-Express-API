@@ -1,14 +1,28 @@
 import * as React from 'react';
-import { Card, CardTitle, CardText, CardFooter, Col } from 'reactstrap';
+import { Button, Card, CardTitle, CardText, CardFooter, Col } from 'reactstrap';
+import $ from 'jquery';
 
 interface WelcomeProps {
-    chirp: { id: string, user: string, text: string }[];
+    chirp: { id: string, user: string, text: string };
 }
 
 const Timeline: React.SFC<WelcomeProps> = (props) => {
+
+    const deleteChirp = (id: string) => {
+        $.ajax({
+            type: "DELETE",
+            url: `/api/chirps/:id`
+        })
+    };
+    
+
     return (
-        <Col sm="6">
-            <Card body className="col-md-12 m-2">
+        <Col sm="12">
+            <Card body className="col-md-8 mx-auto m-2">
+                <Button id="deleteChirp">X</Button>
+                {$('#deleteChirp').click(() => {
+                    deleteChirp(props.chirp.id);
+                })}
                 <CardTitle className="p-2 border border-dark border-top-0 border-left-0 border-right-0">{props.chirp.user} Chirped!</CardTitle>
                 <CardText className="p-2">{props.chirp.text}</CardText>
                 <CardFooter className="mt-2">{props.chirp.id}</CardFooter>

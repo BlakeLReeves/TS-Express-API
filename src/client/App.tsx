@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './scss/app';
-import { Jumbotron } from 'reactstrap';
+import { Jumbotron, Container, Row } from 'reactstrap';
 import Timeline from './Timeline';
 
 export default class App extends React.Component<IAppProps, IAppState> {
@@ -40,8 +40,8 @@ export default class App extends React.Component<IAppProps, IAppState> {
                 </div>
                 <div className="containder">
                     <div className="row">
-                        {this.state.chirps.map((chirp, index) => {
-                            return <Timeline key={index} chirp={chirp} />
+                        {this.state.chirps.map((chirp) => {
+                            return <Timeline chirp={chirp} />
                         })}
                     </div>
                 </div>
