@@ -1,4 +1,11 @@
 {
-  "7": {},
-  "nextid": 8
+  "8": {
+    "user": "Blake",
+    "text": "Hello React!"
+  },
+  "9": {
+    "user": "Robin",
+    "text": "Goodbye React!"
+  },
+  "nextid": 10
 }
