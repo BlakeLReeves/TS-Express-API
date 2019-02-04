@@ -11,7 +11,6 @@ router.get('/:id?', (req, res, next) => {
     } else {
         res.send(Chirps.GetChirps());
     }
-    res.sendStatus(200);
 });
 
 router.post('/', (req, res, next) => {
